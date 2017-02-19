@@ -3,9 +3,6 @@ import multiprocessing
 import subprocess
 from argparse import ArgumentParser
 import sys
-import json
-import urllib2
-import re
 
 def print_id(url):
     '''Queries the Facebook API for the specific group ID, and populates the
@@ -18,12 +15,13 @@ def print_logo():
     print("'   ` ' `-' `-' `-' `-' `-' ' `   `-' `-' ` ' ' `")
 
 def main():
-    print_logo()
     
     parser = ArgumentParser()
     parser.add_argument("-url", dest="url", help="Provide a url for a facebook profile to scan.")
     parser.add_argument("-id", dest="id", help="Provide an id for a facebook profile to scan.")
     parser.add_argument("--printid", dest="printid",  action="store_true", help="Retreive and print the id of a provided facebook url")
+    parser.add_argument("--printurl", dest="printurl",  action="store_true", help="Retreive and print the url of a provided facebook id")
+    parser.add_argument("--quiet", dest="quiet",  action="store_true", help="Supress banner and headers to limit to comma dilimeted results only")
 
     arguments = parser.parse_args()
 
@@ -31,14 +29,24 @@ def main():
         parser.error("No arguments given.  Please specify a profile (url or id) as well as the type of queries to generate.")
         sys.exit()
 
+    if arguments.quiet is not True:
+        print_logo()
+
     if arguments.id is None and arguments.url is None:
-        print("No facebook id or url specified, please supply a url")
+        parser.error("No facebook id or url specified, please supply a url or id to continue.")
+        sys.exit()
 
-    if arguments.url is not None:
-        print("Profile url is: {}".format(arguments.url))
+    if arguments.id is not None and arguments.quiet is not True:
+        print("Provided id: {}".format(arguments.id))
 
-    if arguments.id is True:
+    if arguments.url is not None and arguments.quiet is not True:
+        print("Provided url: {}".format(arguments.url))
+
+    if arguments.printid is True:
         print("Facebook profile id is:")
+
+    if arguments.printurl is True:
+        print("Facebook url is:")
 
 if __name__ == "__main__":
     main()
