@@ -19,9 +19,9 @@ def main():
     parser = ArgumentParser()
     parser.add_argument("-url", dest="url", help="Provide a url for a facebook profile to scan.")
     parser.add_argument("-id", dest="id", help="Provide an id for a facebook profile to scan.")
-    parser.add_argument("--printid", dest="printid",  action="store_true", help="Retreive and print the id of a provided facebook url")
-    parser.add_argument("--printurl", dest="printurl",  action="store_true", help="Retreive and print the url of a provided facebook id")
-    parser.add_argument("--quiet", dest="quiet",  action="store_true", help="Supress banner and headers to limit to comma dilimeted results only")
+    parser.add_argument("--printid", dest="printid",  action="store_true", help="Retreive and print the id of a provided facebook url.")
+    parser.add_argument("--printurl", dest="printurl",  action="store_true", help="Retreive and print the url of a provided facebook id.")
+    parser.add_argument("--quiet", dest="quiet",  action="store_true", help="Supress banner and headers to limit to comma dilimeted results only.")
 
     arguments = parser.parse_args()
 
