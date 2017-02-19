@@ -3,6 +3,14 @@ import multiprocessing
 import subprocess
 from argparse import ArgumentParser
 import sys
+import json
+import urllib2
+import re
+
+def print_id(url):
+    '''Queries the Facebook API for the specific group ID, and populates the
+        results dictionary with the Group ID, User Name, and User ID'''
+
 
 def print_logo():
     print(".-. .-. .-. .-. .-. .-. .-. . .   .-. .-. .-. . .")
