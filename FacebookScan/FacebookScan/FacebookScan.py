@@ -4,6 +4,15 @@ import subprocess
 from argparse import ArgumentParser
 import sys
 
+ACCESS_TOKEN= '' # provide a valid facebook graphs token for access
+FB_GRAPH27 = "https://graph.facebook.com/v2.7/"
+
+def retreive_id(url):
+    '''Queries the Facebook API with a Facebook profile url to reteive an id'''
+    params= {'id': USER_URL,'access_token': ACCESS_TOKEN}
+    r = requests.get(FB_GRAPH27, params=params)
+    return r.json().get('id')
+
 def print_id(url):
     '''Queries the Facebook API for the specific group ID, and populates the
         results dictionary with the Group ID, User Name, and User ID'''
