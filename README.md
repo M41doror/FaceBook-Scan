@@ -10,5 +10,4 @@ usage: FacebookScan.py [-h] [-url URL] [-id ID] [--printid] [--printurl]
   -id ID      Provide an id for a facebook profile to scan.
   --printid   Retreive and print the id of a provided facebook url.
   --printurl  Retreive and print the url of a provided facebook id.
-  --quiet     Supress banner and headers to limit to comma dilimeted results
-              only.
+  --quiet     Supress banner and headers to limit to comma dilimeted results only.
